@@ -1,0 +1,4 @@
+TS=("high performance computing" OR HPC OR supercomputing OR "parallel computing" OR "distributed computing" OR "grid computing" OR "cluster computing" OR "massively parallel processing" OR MPP OR "large-scale computing" OR "exascale computing")
+NOT TS=("personal computing" OR "desktop computing" OR "mobile computing" OR "internet of things" OR IoT OR "edge computing" OR "microprocessors" OR "embedded systems" OR "home computing")
+AND PY=1980-2023
+AND DT=(Article)

@@ -1,0 +1,5 @@
+COOKIE = {
+    'daccess_session': 'G78YiwU6XWALXn58hwFKDUueA7y1NjazbB3hx1rc',
+    '_sp_ses.0692': '*',
+    '_sp_id.0692': '3d99c31b-c733-4eb7-b275-391454153894.1727729094.1.1727732219..2de21189-5c2f-4251-bcc7-f78c0d52f93f..32f74d91-0573-466e-86b3-fd724344c0e2.1727729105324.43',
+}

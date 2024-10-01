@@ -8,6 +8,6 @@ def filter_article(article: dict):
     return False
 
 
-articles = parse_wos_file('repo/full.txt')
+articles = parse_wos_file('downloaded/1-500.txt')
 articles = [article for article in articles if filter_article(article)]
 draw_citation_graph(articles)

@@ -1,6 +1,6 @@
 import requests
 
-from cookie import COOKIE
+from config import COOKIE
 
 
 def read_search_string():

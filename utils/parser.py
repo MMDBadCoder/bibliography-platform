@@ -1,4 +1,4 @@
-def parse_wos_file(file_path):
+def read_articles_from_file(file_path):
     articles = []
     article_data = {}
 

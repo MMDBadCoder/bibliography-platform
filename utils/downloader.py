@@ -4,11 +4,7 @@ from time import sleep
 
 import requests
 
-from cookie import COOKIE
-
-TIME_TO_SLEEP_BETWEEN_DOWNLOADS = 3  # seconds
-PAGE_SIZE = 500
-SORTED_BY = 'times-cited-descending'
+from config import COOKIE, SORTED_BY, TIME_TO_SLEEP_BETWEEN_DOWNLOADS, PAGE_SIZE
 
 
 def download_page(query_id, from_index, to_index):
@@ -81,7 +77,7 @@ def merge_files_content(file_paths, output_file_path):
         print(f"An error occurred: {e}")
 
 
-def download_with_pagination(query_id, records_count):
+def download_paged_files(query_id, records_count):
     Path("downloaded").mkdir(parents=True, exist_ok=True)
 
     downloaded_files = []

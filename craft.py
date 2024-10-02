@@ -1,5 +1,4 @@
-from utils.draw import draw_citation_graph
-from utils.parser import parse_wos_file
+from utils.files_aggregator import aggregate_files_content
 
 
 def filter_article(article: dict):
@@ -8,6 +7,13 @@ def filter_article(article: dict):
     return False
 
 
-articles = parse_wos_file('downloaded/1-500.txt')
-articles = [article for article in articles if filter_article(article)]
-draw_citation_graph(articles)
+files = [
+    'downloaded/1-500.txt',
+    'downloaded/501-1000.txt',
+    'downloaded/1001-1500.txt',
+    'downloaded/1501-2000.txt',
+    'downloaded/2001-2500.txt',
+    'downloaded/2501-3000.txt',
+]
+
+aggregate_files_content(files, 'test.txt')

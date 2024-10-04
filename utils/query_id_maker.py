@@ -1,6 +1,6 @@
 import requests
 
-from config import COOKIE
+from config import COOKIE, SID
 
 
 def read_search_string():
@@ -26,7 +26,7 @@ def make_query():
     }
 
     params = {
-        'SID': 'EUW1ED0B991PDR06qbl8WLwZ2GtRj',
+        'SID': SID,
     }
 
     data = '{"product":"WOSCC","searchMode":"general","viewType":"search","serviceMode":"summary","search":{"mode":"general","database":"WOSCC","query":[{"rowText":"' \

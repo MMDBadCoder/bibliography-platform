@@ -98,3 +98,19 @@ def convert_and_write_lines_to_output(lines, output_file, index):
             field_value_lines = [line[3:]]
         elif line:
             field_value_lines.append(line)
+
+
+def merge_files_content(file_paths, output_file_path):
+    try:
+        with open(output_file_path, 'w') as output_file:
+            for file_path in file_paths:
+                # Check if the file exists
+                if os.path.exists(file_path):
+                    with open(file_path, 'r') as input_file:
+                        content = input_file.read()
+                        output_file.write(content + '\n')  # Add a newline between files
+                else:
+                    print(f"File not found: {file_path}")
+        print(f"Successfully merged files into: {output_file_path}")
+    except Exception as e:
+        print(f"An error occurred: {e}")

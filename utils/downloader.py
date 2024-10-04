@@ -1,10 +1,9 @@
-import os
 from pathlib import Path
 from time import sleep
 
 import requests
 
-from config import COOKIE, SORTED_BY, TIME_TO_SLEEP_BETWEEN_DOWNLOADS, PAGE_SIZE
+from config import COOKIE, SORTED_BY, TIME_TO_SLEEP_BETWEEN_DOWNLOADS, PAGE_SIZE, SID
 
 
 def download_page(query_id, from_index, to_index):
@@ -22,7 +21,7 @@ def download_page(query_id, from_index, to_index):
         'sec-fetch-mode': 'cors',
         'sec-fetch-site': 'same-origin',
         'user-agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/129.0.0.0 Safari/537.36',
-        'x-1p-wos-sid': 'EUW1ED0B991PDR06qbl8WLwZ2GtRj',
+        'x-1p-wos-sid': f'{SID}',
     }
 
     json_data = {
@@ -61,22 +60,6 @@ def download_page(query_id, from_index, to_index):
     return file_path
 
 
-def merge_files_content(file_paths, output_file_path):
-    try:
-        with open(output_file_path, 'w') as output_file:
-            for file_path in file_paths:
-                # Check if the file exists
-                if os.path.exists(file_path):
-                    with open(file_path, 'r') as input_file:
-                        content = input_file.read()
-                        output_file.write(content + '\n')  # Add a newline between files
-                else:
-                    print(f"File not found: {file_path}")
-        print(f"Successfully merged files into: {output_file_path}")
-    except Exception as e:
-        print(f"An error occurred: {e}")
-
-
 def download_paged_files(query_id, records_count):
     Path("downloaded").mkdir(parents=True, exist_ok=True)
 
@@ -89,6 +72,4 @@ def download_paged_files(query_id, records_count):
         current_index = to_index + 1
         sleep(TIME_TO_SLEEP_BETWEEN_DOWNLOADS)
 
-    output_file_path = 'merge.txt'
-    merge_files_content(downloaded_files, output_file_path)
-    return output_file_path
+    return downloaded_files

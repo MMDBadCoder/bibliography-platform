@@ -9,12 +9,19 @@ else:  # If the app is run as a script
     base_path = os.path.dirname(os.path.abspath(__file__))
 
 # Load config.py from the same directory as the executable or script
-config_path = os.path.join(base_path, '../config.py')
+config_path = os.path.join(base_path, 'config.py')
 
 # Dynamically import config.py
 spec = importlib.util.spec_from_file_location("config", config_path)
 config = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(config)
+
+print("Cookie:", config.COOKIE)
+print("SID:", config.SID)
+print("Time to Sleep Between Downloads:", config.TIME_TO_SLEEP_BETWEEN_DOWNLOADS)
+print("Page Size:", config.PAGE_SIZE)
+print("Sorted By:", config.SORTED_BY)
+print("Downloading Records Limit:", config.DOWNLOADING_RECORDS_LIMIT)
 
 COOKIE = config.COOKIE
 SID = config.SID

@@ -1,6 +1,6 @@
 import requests
 
-from utils.config_loader import COOKIE, SID
+from config_loader import COOKIE, SID
 
 
 def read_search_string():

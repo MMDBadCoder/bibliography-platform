@@ -3,7 +3,7 @@ from time import sleep
 
 import requests
 
-from config import COOKIE, SORTED_BY, TIME_TO_SLEEP_BETWEEN_DOWNLOADS, PAGE_SIZE, SID
+from utils.config_loader import COOKIE, SORTED_BY, TIME_TO_SLEEP_BETWEEN_DOWNLOADS, PAGE_SIZE, SID
 
 
 def download_page(query_id, from_index, to_index):

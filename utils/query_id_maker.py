@@ -4,7 +4,7 @@ from config import COOKIE, SID
 
 
 def read_search_string():
-    with open('./search_string.txt', 'r') as search_string_file:
+    with open('./search_string.txt', 'r',  encoding='utf-8') as search_string_file:
         return "\n".join(search_string_file.readlines()).replace("\n", " ").replace('"', '\\"')
 
 
